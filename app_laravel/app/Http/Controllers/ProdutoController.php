@@ -31,24 +31,24 @@ class ProdutoController extends Controller
         return redirect()->route('produto.index');
     }
 
-    public function editar($id, Request $request)
+    public function editar(Request $request, $id)
     {
         $produto = Produto::findOrFail($id);
 
-        // Validar os dados
-        $validatedData = $request->validate([
-            'nome' => 'required|max:255',
-            'valor' => 'required|numeric',
-            'descricao' => 'nullable|string',
-            'data_validade' => 'nullable|date',
-            'ativo' => 'required|boolean',
-            'categoria_id' => 'nullable|integer',
-        ]);
+        $valor = str_replace(' R$', '', $request->valor);
+        $valor = floatval(str_replace(',', '.', $valor));
 
-        // Atualiza o produto
-        $produto->update($validatedData);
+        $produto->update([
+            'nome' => $request->nome,
+            'descricao' => $request->descricao,
+            'valor' => $valor,
+            'data_validade' => $request->data_validade,
+            'ativo' => $request->ativo,
+            'categoria_id' => $request->categoria_id,
+        ]);
 
         return redirect()->route('produto.index');
     }
+
 
 }

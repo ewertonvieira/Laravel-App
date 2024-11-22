@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Listagem</title>
 </head>
+
 <body id="body-list">
     <div class="container-table">
         <table>
@@ -19,8 +21,7 @@
                     <th>Validade</th>
                     <th>Status</th>
                     <th>Categoria</th>
-                    <th>-</th>
-					<th>-</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +33,6 @@
                         <form action="{{ route('produto.editar', $item->id) }}" method="POST" class="form-editar">
                             @csrf
                             @method('PUT')
-
                             <!-- Nome do produto -->
                             <td>
                                 <input type="text" name="nome" value="{{ $item->nome }}" required>
@@ -68,14 +68,15 @@
 
                             <!-- Ações -->
                             <td class="acoes">
-                                <!-- Botão para salvar -->
                                 <button type="submit" class="btn-editar">Salvar</button>
+
                             </td>
                         </form>
 
                         <!-- Formulario de Deletar dentro da mesma célula -->
                         <td class="acoes">
-                            <form action="{{ route('produto.deletar', $item->id) }}" method="POST" class="form-acoes-deletar">
+                            <form action="{{ route('produto.deletar', $item->id) }}" method="POST"
+                                class="form-acoes-deletar">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-deletar">Deletar</button>
@@ -87,4 +88,5 @@
         </table>
     </div>
 </body>
+
 </html>
