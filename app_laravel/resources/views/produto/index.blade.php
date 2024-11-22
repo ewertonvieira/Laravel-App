@@ -45,7 +45,7 @@
 
                             <!-- Preço do produto -->
                             <td>
-                                <input type="text" name="valor" value="{{ $item->valor }}" required>
+                                <input type="text" name="valor" value="{{ $item->valor }} R$" required>
                             </td>
 
                             <!-- Data de validade -->
