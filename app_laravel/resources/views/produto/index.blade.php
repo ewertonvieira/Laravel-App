@@ -19,7 +19,8 @@
                     <th>Validade</th>
                     <th>Status</th>
                     <th>Categoria</th>
-                    <th>Ações</th>
+                    <th>Salvar</th>
+					<th>Deletar</th>
                 </tr>
             </thead>
             <tbody>

@@ -63,10 +63,6 @@ td select {
     box-sizing: border-box;  
 }
 
-.acoes {
-    display: flex;   
-    justify-content: center; 
-}
 
 .acoes > button, .btn-deletar {
     width: 70px;
