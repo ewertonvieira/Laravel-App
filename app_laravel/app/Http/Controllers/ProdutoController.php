@@ -10,7 +10,11 @@ class ProdutoController extends Controller
 {
     public function index()
     {
-        return view('produto.index');
+        // Recupera todos os produtos da tabela
+        $produtos = Produto::all();
+
+        // Retorna para a view, passando os produtos
+        return view('produto.index', compact('produtos'));
     }
 
     public function cadastrar()
@@ -18,12 +22,29 @@ class ProdutoController extends Controller
         return view('produto.cadastrar');
     }
 
-    public function lista()
+    public function deletar(Request $request)
     {
-         // Recupera todos os produtos da tabela
-         $produtos = Produto::all();
-
-         // Retorna para a view, passando os produtos
-         return view('produto.index', compact('produtos'));
+        $id = $request->input('id');
+        $produtos = Produto::find(id: $id);
+        $produtos->delete();
+        return redirect()->route('produto.index');
     }
+
+    public function editar($id, Request $request)
+    {
+        $produto = Produto::findOrFail($id);
+
+        // Validar os dados
+        $validatedData = $request->validate([
+            'nome' => 'required|max:255',
+            'preco' => 'required|numeric',
+            'descricao' => 'nullable|string',
+        ]);
+
+        // Atualiza o produto
+        $produto->update($validatedData);
+
+        return redirect()->route('produtos.index');
+    }
+
 }

@@ -9,19 +9,23 @@
 </head>
 
 <body>
-    <form action="" method="post">
-        <h1>Cadastro de Produto</h1>
 
-        <label for="">Nome</label>
-        <input type="text" name="nome" id="">
+    <div class="form">
+        <form action="" method="post" class="form-1">
+            <h1>Cadastro de Produto</h1>
 
-        <label for="">Valor</label>
-        <input type="text" name="valor" id="">
+            <label for="">Nome</label>
+            <input type="text" name="nome" id="">
 
-        <label for="">Descrição</label>
-        <textarea name="descricao" id="desc"></textarea>
-        <button type="submit">Salvar</button>
-    </form>
+            <label for="">Valor</label>
+            <input type="text" name="valor" id="">
+
+            <label for="">Descrição</label>
+            <textarea name="descricao" id="desc"></textarea>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
 </body>
 
 </html>

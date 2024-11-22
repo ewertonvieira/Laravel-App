@@ -7,4 +7,8 @@ use Symfony\Component\Routing\Router;
 
 Route::get('/produto/cadastro', [ProdutoController::class, 'cadastrar']) ->name(name: 'produto.cadastrar');
 
-Route::get('/', [ProdutoController::class, 'lista'])->name('produto.index');
+Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
+
+Route::post('/delete', [ProdutoController::class, 'deletar'])->name('produto.deletar');
+
+Route::put('/produto/{id}', [ProdutoController::class, 'editar'])->name('produto.editar');
