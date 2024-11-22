@@ -19,8 +19,8 @@
                     <th>Validade</th>
                     <th>Status</th>
                     <th>Categoria</th>
-                    <th>Salvar</th>
-					<th>Deletar</th>
+                    <th>-</th>
+					<th>-</th>
                 </tr>
             </thead>
             <tbody>
