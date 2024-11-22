@@ -9,6 +9,6 @@ Route::get('/produto/cadastro', [ProdutoController::class, 'cadastrar']) ->name(
 
 Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
 
-Route::post('/delete', [ProdutoController::class, 'deletar'])->name('produto.deletar');
+Route::delete('/produto/{id}', [ProdutoController::class, 'deletar'])->name('produto.deletar');
 
 Route::put('/produto/{id}', [ProdutoController::class, 'editar'])->name('produto.editar');

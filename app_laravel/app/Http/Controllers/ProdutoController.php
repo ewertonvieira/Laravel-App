@@ -22,11 +22,12 @@ class ProdutoController extends Controller
         return view('produto.cadastrar');
     }
 
-    public function deletar(Request $request)
+    public function deletar(Request $request, $id)
     {
-        $id = $request->input('id');
-        $produtos = Produto::find(id: $id);
-        $produtos->delete();
+        $produto = Produto::findOrFail($id);
+
+        $produto->delete();
+
         return redirect()->route('produto.index');
     }
 
@@ -37,14 +38,17 @@ class ProdutoController extends Controller
         // Validar os dados
         $validatedData = $request->validate([
             'nome' => 'required|max:255',
-            'preco' => 'required|numeric',
+            'valor' => 'required|numeric',
             'descricao' => 'nullable|string',
+            'data_validade' => 'nullable|date',
+            'ativo' => 'required|boolean',
+            'categoria_id' => 'nullable|integer',
         ]);
 
         // Atualiza o produto
         $produto->update($validatedData);
 
-        return redirect()->route('produtos.index');
+        return redirect()->route('produto.index');
     }
 
 }

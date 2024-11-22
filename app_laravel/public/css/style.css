@@ -56,55 +56,43 @@ td {
     font-size: 16px;
 }
 
+td input,
+td select {
+    width: 100%; 
+    padding: 8px;
+    box-sizing: border-box;  
+}
 
 .acoes {
-    display: inline-flex;
+    display: flex;   
+    justify-content: center; 
 }
 
-.price {
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.status {
-    font-weight: bold;
-}
-
-.category {
-    font-style: italic;
-}
-
-.acoes>button, .form-acoes>button {
+.acoes > button, .btn-deletar {
     width: 70px;
     height: 30px;
     font-size: 15px;
-    margin: 2px;
+    padding: 0 10px;
+    margin: 0;  
     border: none;
     border-radius: 4px;
     color: #fff;
-
+    cursor: pointer;
 }
 
-.acoes>button:hover, .form-acoes>button:hover {
+.acoes > button:hover,.btn-deletar:hover {
     background-color: #919191;
 }
 
-.acoes>button:active, .form-acoes>button:active {
+.acoes > button:active,.btn-deletar:active {
     transform: scale(0.98);
 }
 
 .btn-editar {
-    background-color: #302eb1;
+    background-color: #302eb1;  
 }
 
 .btn-deletar {
-    background-color: #bb303b;
+    background-color: #bb303b; 
 }
 
-td input,
-td select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    /* Garante que o padding não cause estouro do tamanho */
-}
